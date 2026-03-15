@@ -1,5 +1,7 @@
 # M13 Deal Brief — Portfolio Intelligence Platform
 
+### **[Live Demo](https://m13-deal-brief-686529012610.us-central1.run.app)**
+
 > **Project Showcase by Arjun Varma** for the **M13 Data Analyst Intern** position (Summer 2026)
 >
 > [LinkedIn](https://linkedin.com/in/varma-arjun/) · [GitHub](https://github.com/ARJUNVARMA2000) · [Portfolio](https://arjun-varma.com) · [av3342@columbia.edu](mailto:av3342@columbia.edu)
@@ -8,6 +10,12 @@ A professional web application that generates structured investor briefing docum
 
 ![Next.js](https://img.shields.io/badge/Next.js-15-black) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![Tailwind](https://img.shields.io/badge/Tailwind-4-38bdf8) ![Python](https://img.shields.io/badge/Python-3.11-yellow)
 
+### Company Selector
+![Home Page](public/screenshot-home.png)
+
+### AI-Generated Investor Briefing with Data Source Labels
+![Briefing Page](public/screenshot-briefing.png)
+
 ---
 
 ## Important: Proof of Concept
@@ -15,7 +23,7 @@ A professional web application that generates structured investor briefing docum
 This project is a **proof of concept** built to demonstrate my approach to the "Meeting Prep Automation" project listed in the M13 job description. Key caveats:
 
 - **Public data sources only** — All company data is curated from publicly available information (press releases, Crunchbase, SEC filings). No proprietary or confidential data is used.
-- **Not production-ready** — This is a 1-day sprint showcasing architecture, AI integration, and product thinking. A production version would incorporate M13's internal systems (see [With M13's Internal Data](#with-m13s-internal-data) below).
+- **Not production-ready** — This is a 1-day sprint showcasing architecture, AI integration, and product thinking. A production version would incorporate M13's internal systems (Affinity/DealCloud, portfolio reports).
 - **LLM-generated content** — Briefings are synthesized by AI and should not be treated as investment advice or factual reporting.
 
 The goal is to show *how* I'd build this tool, not to deliver a finished product. With access to M13's CRM (Affinity/DealCloud), portfolio reporting, and internal deal memos, this architecture scales directly into a real internal tool.
@@ -132,49 +140,6 @@ Real VC data is messy and siloed. This hybrid approach mirrors reality — struc
 
 ### Why a fallback briefing system?
 Graceful degradation. If the LLM API is down or slow, the app still produces useful output. In production, you'd want this reliability for time-sensitive meeting prep.
-
----
-
-## With M13's Internal Data
-
-This proof of concept transforms dramatically with access to real systems:
-
-| Current (POC) | With Internal Data |
-|---------|-------------------|
-| 6 curated companies | Full portfolio (50+ companies) from CRM |
-| Public metrics only | Actual MRR, burn rate, runway from quarterly portfolio reports |
-| Generic news search | CRM notes, meeting history, deal memos from Affinity/DealCloud |
-| Manual trigger | Calendar-triggered: auto-generate briefings before scheduled meetings |
-| Text search | Embeddings-based semantic search across all internal documents |
-| Single company briefing | Comparative analysis: "How does this compare to our other fintech bets?" |
-| Public funding data | Internal cap table data, ownership percentages, follow-on modeling |
-
-**What I'd build on Day 1 with internal access:**
-1. Connect to Affinity API for real relationship and meeting history data
-2. Ingest quarterly portfolio company reports for live financial metrics
-3. Add Slack integration (`/brief lyft`) for on-demand briefing generation
-4. Build embeddings index over internal memos for semantic search across deal notes
-
----
-
-## Iteration Roadmap
-
-### v2 — Internal Tool (Week 2-4)
-- [ ] Slack integration: `/brief lyft` generates and posts to channel
-- [ ] Calendar integration: auto-generate briefings before partner meetings
-- [ ] CRM sync: pull from Affinity/DealCloud for real relationship data
-- [ ] Multi-user: team members can annotate and share briefings
-
-### v3 — Portfolio Intelligence (Month 2-3)
-- [ ] Portfolio-wide search: "Which companies have >2x YoY growth?"
-- [ ] Embeddings + vector DB for semantic search across all notes
-- [ ] Automated competitive monitoring: alert when competitors raise or launch
-- [ ] Quarterly portfolio review deck auto-generation
-
-### v4 — Deal Flow Enhancement (Month 3+)
-- [ ] New deal intake: generate diligence checklists for inbound companies
-- [ ] Market mapping: visualize competitive landscapes dynamically
-- [ ] LP reporting automation: portfolio performance summaries
 
 ---
 
