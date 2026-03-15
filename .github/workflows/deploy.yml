@@ -56,6 +56,5 @@ jobs:
             --port=8080
           env_vars: |
             NODE_ENV=production
-          secrets: |
-            OPENROUTER_API_KEY=OPENROUTER_API_KEY:latest
-            SERPER_API_KEY=SERPER_API_KEY:latest
+            OPENROUTER_API_KEY=${{ secrets.OPENROUTER_API_KEY }}
+            SERPER_API_KEY=${{ secrets.SERPER_API_KEY }}
